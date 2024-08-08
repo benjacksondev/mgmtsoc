@@ -8,7 +8,7 @@ import (
 )
 
 func TestServer(t *testing.T) {
-	config := Config{MgmtHost: "localhost", MgmtPort: 8124}
+	config := Config{MgmtHost: "localhost", MgmtPort: 8122}
 
 	onDataCallback := func(cmd string, args []string, conn net.Conn) {
 		expectedCmd := "TEST"
@@ -31,7 +31,7 @@ func TestServer(t *testing.T) {
 	go Start(config, onDataCallback, onErrorCallback)
 	time.Sleep(time.Second) // Give server time to start
 
-	conn, err := net.Dial("tcp", "localhost:8124")
+	conn, err := net.Dial("tcp", "localhost:8122")
 	if err != nil {
 		t.Fatalf("Failed to connect to server: %v", err)
 	}
