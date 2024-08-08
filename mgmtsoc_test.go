@@ -29,7 +29,7 @@ func TestServer(t *testing.T) {
 	}
 
 	go Start(config, onDataCallback, onErrorCallback)
-	time.Sleep(time.Second) // Give server time to start
+	time.Sleep(time.Second * 5) // Give server time to start
 
 	conn, err := net.Dial("tcp", "localhost:8122")
 	if err != nil {
