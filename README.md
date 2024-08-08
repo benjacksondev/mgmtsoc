@@ -20,7 +20,7 @@ To install the package, run:
 go get github.com/benjacksondev/mgmtsoc
 ```
 
-## Usage
+## Usage
 
 Here is an example of how to use the MgmtSoc library:
 
