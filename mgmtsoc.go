@@ -1,12 +1,11 @@
 package mgmtsoc
 
 import (
-	"bufio",
-	"fmt",
-	"net",
+	"bufio"
+	"fmt"
+	"net"
 	"strings"
 )
-
 
 // Config holds the server configuration
 type Config struct {
