@@ -28,6 +28,7 @@ package main
 import (
 	"fmt"
 	"net"
+
 	"github.com/benjacksondev/mgmtsoc"
 )
 
@@ -35,8 +36,13 @@ func main() {
 	config := mgmtsoc.Config{MgmtHost: "localhost", MgmtPort: 8123}
 
 	onDataCallback := func(cmd string, args []string, conn net.Conn) {
-		fmt.Printf("Command: %s, Args: %v\n", cmd, args)
-		conn.Write([]byte("Command received\n"))
+		if cmd == "status" {
+			conn.Write([]byte("UP\n"))
+		}
+
+		if cmd == "help" {
+			conn.Write([]byte("Commands: status\n"))
+		}
 	}
 
 	onErrorCallback := func(err error, conn net.Conn) {
@@ -47,7 +53,25 @@ func main() {
 	if success {
 		fmt.Println("Server started successfully")
 	}
+
+	// Prevent the main function from exiting
+	select {} // This blocks forever
 }
+```
+
+### netcat (nc)
+
+```
+$ echo "help" | nc localhost 8123
+Commands: help status
+```
+
+### telnet
+
+```
+$ telnet localhost 8123
+> help
+Commands: help status
 ```
 
 ## Testing
