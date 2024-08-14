@@ -7,7 +7,7 @@ MgmtSoc is a simple TCP server library in Go that allows you to start a server w
 
 ## Description
 
-Inspired by this [blog post](https://www.marccostello.com/little-socket-services/), MgmtSoc provides a lightweight alternative to building HTTP APIs for interacting with long-running processes, such as daemons or other background services. Traditionally, setting up such interactions requires a setting up a 
+Inspired by this [blog post](https://www.marccostello.com/little-socket-services/), MgmtSoc provides a lightweight alternative to building HTTP APIs for interacting with long-running processes, such as daemons or other background services.
 
 ## Installation
 
