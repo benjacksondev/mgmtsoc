@@ -41,7 +41,7 @@ func main() {
 		}
 
 		if cmd == "help" {
-			conn.Write([]byte("Commands: status\n"))
+			conn.Write([]byte("Commands: help status\n"))
 		}
 	}
 
