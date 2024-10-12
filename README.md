@@ -3,11 +3,9 @@
 [![Go](https://github.com/benjacksondev/mgmtsoc/actions/workflows/ci.yml/badge.svg)](https://github.com/benjacksondev/mgmtsoc/actions/workflows/ci.yml)
 
 
-MgmtSoc is a simple TCP server library in Go that allows you to start a server with configurable host and port. It handles incoming data and errors through user-defined callback functions.
+Lightweight TCP server library which allows you to start a server with configurable host and port. Handles incoming data and errors through user-defined callback functions.
 
-## Description
-
-Needed a reuseable method to send commands to running processes, and inspired by this [blog post](https://www.marccostello.com/little-socket-services/), created a small go library which can be dropped into Go programs to do just that. Blog post refers to statsd by Etsy but, also seen this kind of thing done in Kafka services, zookeeper and alike.
+tcp server 
 
 ## Installation
 
@@ -20,7 +18,7 @@ go get github.com/benjacksondev/mgmtsoc
 
 ## Usage
 
-Here is an example of how to use the MgmtSoc library:
+Example of how to use mgmtsoc:
 
 ```go
 package main
