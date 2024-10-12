@@ -14,12 +14,12 @@ type Config struct {
 }
 
 // Start initializes and starts the TCP server with the given configuration and callbacks.
-func Start(config Config, onDataCallback func(cmd string, args []string, conn net.Conn), onErrorCallback func(err error, conn net.Conn)) bool {
+// Start initializes and starts the TCP server with the given configuration and callbacks.
+func Start(config Config, onDataCallback func(cmd string, args []string, conn net.Conn), onErrorCallback func(err error, conn net.Conn)) error {
 	address := fmt.Sprintf("%s:%d", config.MgmtHost, config.MgmtPort)
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
-		fmt.Println("Error starting the server:", err)
-		return false
+		return fmt.Errorf("Error starting the server: %w", err)
 	}
 
 	go func() {
@@ -33,7 +33,7 @@ func Start(config Config, onDataCallback func(cmd string, args []string, conn ne
 		}
 	}()
 
-	return true
+	return nil
 }
 
 // handleConnection manages the connection for incoming data.
